@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+       "
+>
+    <import resource="ctx-database.xml"/>
+
+    <bean id="filmService" class="sk.posam.fsa.spring.application.FilmArchiveServiceImpl" >
+        <constructor-arg ref="actorRepo"/>
+        <constructor-arg ref="filmRepo"/>
+    </bean>
+
+    <bean id="filmRepo" class="sk.posam.fsa.spring.application.FilmRepositoryImpl">
+        <constructor-arg ref="myEmf"/>
+    </bean>
+
+    <bean id="actorRepo" class="sk.posam.fsa.spring.application.ActorRepositoryImpl">
+        <property name="entityManagerFactory" ref="myEmf"/>
+    </bean>
+
+
+
+</beans>
