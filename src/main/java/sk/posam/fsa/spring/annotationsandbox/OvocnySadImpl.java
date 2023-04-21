@@ -1,5 +1,7 @@
 package sk.posam.fsa.spring.annotationsandbox;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -14,6 +16,10 @@ public class OvocnySadImpl implements OvocnySad {
     private int kapacita;
 
     private Set<Strom> stromy=new HashSet<>();
+
+    @Autowired
+    @Qualifier("dedkovaJablon")
+    private Strom dedkovaJablon;
 
     @Override
     public int getKapacita() {
