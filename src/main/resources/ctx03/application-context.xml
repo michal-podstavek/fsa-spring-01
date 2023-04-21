@@ -28,6 +28,10 @@
         <property name="entityManagerFactory" ref="myEmf"/>
     </bean>
 
+    <!--  id = "sk.posam.fsa.spring.annotationsandbox.Jablon#0"  -->
+    <bean class="sk.posam.fsa.spring.annotationsandbox.Jablon"/>
+
+    <bean id="dedkovaJablon" class="sk.posam.fsa.spring.annotationsandbox.Jablon"/>
 
 
 </beans>
